@@ -12,12 +12,20 @@ type RGA struct {
 }
 
 func NewRGA() *RGA {
-	return &RGA{
+	r := &RGA{
 		elements: make(map[string]*Element),
 	}
+	
+	r.elements["ROOT"] = &Element{
+		ID: "ROOT"
+	}
+
+	return r
 }
 
+
 func (r *RGA) Insert(id, value, prevID string) {
+
 	r.elements[id] = &Element{
 		ID:     id,
 		Value:  value,
@@ -40,3 +48,22 @@ func (r *RGA) Merge(other *RGA) {
 		}
 	}
 }
+
+
+func (r *RGA) ToString() string {
+	child := make(map[string][]*Element)
+
+	for _, ele := range r.elements{
+		if ele.ID == "ROOT"{
+			continue
+		}
+
+		child[ele.PrevID] = append()
+
+
+	return string
+	}
+
+}
+
+
